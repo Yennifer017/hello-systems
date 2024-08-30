@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+  }
+body {
+    margin: 0;
+    background-color: #000;
+}
+.large-image{
+    width: 70%;
+}
+.centrado {
+    display: block;
+    margin:auto;
+    text-align: center;
+}
+.div-centrado{
+    width: 50%; /* Ancho fijo o relativo */
+    margin: 2rem auto; /* Centro horizontalmente */
+}
+
+.button-game {
+    background-color: #4CAF50; /* Fondo verde brillante */
+    color: white; /* Color del texto */
+    font-family: 'Press Start 2P', sans-serif; /* Fuente de estilo retro */
+    font-size: 16px; /* Tamaño de la fuente */
+    padding: 15px 30px; /* Relleno del botón */
+    border: 4px solid #333; /* Borde grueso */
+    border-radius: 0; /* Sin bordes redondeados para un estilo retro */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    text-shadow: 2px 2px #000; /* Sombra del texto */
+    box-shadow: 0px 0px 10px 2px #000; /* Sombra alrededor del botón */
+    transition: all 0.2s ease; /* Transición suave para los efectos */
+    text-decoration: none;
+}
+  
+.button-game:hover {
+    background-color: #3E8E41; /* Cambia el color de fondo al pasar el ratón */
+    box-shadow: 0px 0px 15px 4px #000; /* Aumenta la sombra al pasar el ratón */
+}
+  
+.button-game:active {
+    background-color: #367733; /* Cambia el color de fondo al hacer clic */
+    box-shadow: 0px 0px 5px 1px #000 inset; /* Sombra interna para efecto de presionado */
+    transform: translateY(2px); /* Mueve ligeramente hacia abajo al presionar */
+}
+
+.paragraph-gamer {
+    margin: 1rem;
+    font-family: 'Press Start 2P', sans-serif; /* Fuente retro estilo gamer */
+    font-size: 18px; /* Tamaño de la fuente */
+    color: #00FF00; /* Color verde brillante estilo hacker/gamer */
+    background-color: #000000; /* Fondo negro */
+    padding: 20px; /* Espacio interno del párrafo */
+    line-height: 1.5; /* Altura de línea */
+    text-align: justify; /* Justifica el texto */
+    border: 4px solid #333; /* Borde grueso */
+    box-shadow: 0px 0px 15px 5px #00FF00; /* Sombra brillante alrededor del párrafo */
+}
+  
+
+/*FORM*/
+
+.gamer-form {
+    background-color: #000000; /* Fondo negro del formulario */
+    padding: 30px;
+    border-radius: 10px;
+    border: 3px solid #00FF00; /* Borde verde brillante */
+    box-shadow: 0px 0px 20px 5px #00FF00; /* Sombra verde brillante */
+    max-width: 400px;
+    width: 100%;
+}
+
+.gamer-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00FF00; /* Color del título verde brillante */
+    text-shadow: 2px 2px #FF0000, -2px -2px #0000FF; /* Sombra de texto estilo RGB */
+}
+
+.gamer-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #FFFFFF; /* Color de las etiquetas blanco */
+    text-shadow: 1px 1px #00FF00; /* Sombra ligera verde en el texto */
+}
+
+.gamer-form input[type="text"],
+.gamer-form input[type="email"],
+.gamer-form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #00FF00; /* Borde verde brillante */
+    border-radius: 5px;
+    background-color: #1a1a1a; /* Fondo oscuro */
+    color: #00FF00; /* Texto verde brillante */
+    box-shadow: inset 0px 0px 10px #00FF00; /* Efecto de luz interna */
+    font-family: 'Press Start 2P', sans-serif; /* Fuente retro */
+}
+
+.gamer-form input[type="text"]:focus,
+.gamer-form input[type="email"]:focus,
+.gamer-form input[type="password"]:focus {
+    outline: none;
+    box-shadow: 0px 0px 15px #FF0000, inset 0px 0px 10px #00FF00; /* Efecto de foco rojo y verde */
+}
+
+.gamer-form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #00FF00; /* Fondo verde brillante */
+    color: #000000; /* Texto negro */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: sans-serif; /* Fuente retro */
+    box-shadow: 0px 0px 20px 5px #00FF00; /* Sombra verde brillante */
+    transition: all 0.2s ease-in-out;
+}
+
+.gamer-form button[type="submit"]:hover {
+    background-color: #FF0000; /* Cambia a rojo al pasar el ratón */
+    color: #FFFFFF; /* Texto blanco */
+    box-shadow: 0px 0px 20px 5px #FF0000; /* Sombra roja brillante */
+}
+
+.gamer-form .login-link {
+    text-align: center;
+    margin-top: 15px;
+    color: #FFFFFF; /* Texto blanco */
+    font-size: 12px;
+}
+
+.gamer-form .login-link a {
+    color: #00FF00; /* Enlace verde brillante */
+    text-decoration: none;
+}
+
+.gamer-form .login-link a:hover {
+    color: #FF0000; /* Cambia a rojo al pasar el ratón */
+    text-shadow: 0px 0px 10px #FF0000; /* Sombra roja brillante */
+}
