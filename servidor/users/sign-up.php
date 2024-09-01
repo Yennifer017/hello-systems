@@ -1,31 +1,39 @@
 <?php
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require '../db_connection.php';
+require '../encryptation.php';
 $error = '';
 $mss = '';
+$password_pattern = '/^[a-zA-Z0-9_@.,+\-*!?]+$/';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   
-
     // datos del formulario
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirmpassword = $_POST['confirm_password'];
+    //vaidaciones
     if($password != $confirmpassword) {
         $error = 'La contrasenas no coinciden';
     } else if(strlen($username) > 8){
         $error = 'El username deber ser menor a 8 caracteres';
+    } else if(!preg_match($password_pattern, $password) || strlen($password) < 4) {
+        $error = 'La contrasena no cumple con el formato establecido';
     } else {
         // Proteger contra inyecciones SQL
         $username = $conn->real_escape_string($username);
         $email = $conn->real_escape_string($email);
         $password = $conn->real_escape_string($password);
 
+        //encryptation
+        $password = encrypt($password, $username);
+
         // Crear la consulta SQL de inserción
-        $sql = "INSERT INTO Users (username, password, gold, email) VALUES ('$username', '$password', 100, '$email')";
+        $sql = "INSERT INTO Users (username, password, gold, email) 
+                VALUES ('$username', '$password', 100, '$email')";
         try {
             // Ejecutar la consulta
             if ($conn->query($sql) === TRUE) {
@@ -37,7 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $error = "". $e->getMessage();
         }
     }
-
 }
 
 ?>
@@ -69,13 +76,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" id="confirm_password" name="confirm_password" required>
 
             <?php
-                if ($error != "") {
-                    echo "<div class=\"error-message\">" . $error . "</div>";
-                }
-
                 if($mss != ''){
                     echo "<div class=\"success-message\"> ". $mss ."</div>";
                     $error = '';
+                }
+
+                if ($error != "") {
+                    echo "<div class=\"error-message\">" . $error . "</div>";
                 }
             ?>            
 
