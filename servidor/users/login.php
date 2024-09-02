@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 require '../db_connection.php';
 require '../encryptation.php';
@@ -32,13 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result->num_rows > 0) {
             // Procesar los resultados
             $row = $result->fetch_assoc();
-            setSessionCookie($row['id']);
-            header("Location: display-pets.php");
+            set_session_cookie($row['id']);
+            set_cookie('username', $username);
+            header("Location: ../users/game/dashboard.php");
             exit();
-
-            /*while ($row = $result->fetch_assoc()) {
-                echo "id: " . $row["id"];
-            }*/
+            
         } else {
             $error = "Credenciales inválidas";
         }

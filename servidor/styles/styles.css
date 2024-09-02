@@ -57,9 +57,121 @@ body {
     border: 4px solid #333; /* Borde grueso */
     box-shadow: 0px 0px 15px 5px #00FF00; /* Sombra brillante alrededor del párrafo */
 }
+
+/*
+    TITLE
+*/
+
+/* Asegúrate de incluir una fuente adecuada en tu HTML */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+.gamer-title {
+    font-family: 'Orbitron', sans-serif; /* Fuente estilo futurista */
+    font-size: 3rem; /* Tamaño grande del título */
+    color: #00fff7; /* Color verde neón */
+    text-shadow: 0 0 10px rgba(0, 255, 225, 0.771), 0 0 20px rgba(0, 255, 153, 0.5); /* Efecto de sombra */
+    background: linear-gradient(45deg, #0f0f0f, #333); /* Gradiente de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Alineación centrada del texto */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra alrededor del título */
+    margin: 20px 0; /* Margen arriba y abajo */
+}
+
+.gamer-title:hover {
+    color: #00bbff; /* Cambia el color al pasar el mouse */
+    text-shadow: 0 0 15px rgba(0, 60, 255, 0.7), 0 0 30px rgba(0, 128, 255, 0.5); /* Efecto de sombra al pasar el mouse */
+}
+
+
+/*****************************************
+HEADER
+*******************************************/
+/* Estilo Gamer para el Header */
+
+header {
+    background: linear-gradient(90deg, #0d0d0d, #333); /* Fondo degradado oscuro */
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Sombra */
+    border-bottom: 3px solid #00ff99; /* Línea inferior verde neón */
+}
+
+header h1 {
+    color: #00ff99; /* Texto verde neón */
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    margin: 0;
+    text-shadow: 0px 0px 10px #00ff99, 0px 0px 20px #00ff99; /* Efecto de neón */
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li a {
+    color: #ffffff; /* Texto blanco */
+    text-decoration: none;
+    font-size: 1.2rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #00ff99; /* Cambia el color del texto al verde neón al pasar el cursor */
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #00ff99;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+    width: 100%; /* Subrayado verde neón al pasar el cursor */
+}
+
+.header-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(0,255,153,0.2), transparent 70%);
+    transform: translate(-50%, -50%);
+    filter: blur(30px);
+    pointer-events: none; /* No interactuar con los elementos */
+    z-index: 0;
+}
+
+header * {
+    position: relative;
+    z-index: 1; /* Asegurar que el contenido esté encima del efecto de brillo */
+}
+
+
+
  
 /*****************************************
-ERROR
+ERROR && SUCCESS
 *******************************************/
 .success-message{
     background-color: #1692ff; 

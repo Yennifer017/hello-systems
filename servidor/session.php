@@ -1,11 +1,16 @@
 <?php
 
 const PASS_PHRASE = 'i-amnt-the-best--------------';
-function setSessionCookie($id) {
+function set_session_cookie($id) {
     $id = makeup_data($id);
     $expiracion = time() + (86400 * 30); // La cookie expirará en 30 días
     setcookie('session', $id, $expiracion, "/"); // Crear la cookie*/
 };
+
+function set_cookie($name, $value){
+    $expiracion = time() + (86400 * 30); // La cookie expirará en 30 días
+    setcookie($name, $value, $expiracion, "/"); // Crear la cookie*/
+}
 
 function makeup_data($data) {
     $method = 'aes-256-cbc'; // Método de cifrado
