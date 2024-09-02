@@ -77,6 +77,7 @@ CREATE TABLE Players_animals(
 	id_type INTEGER NOT NULL,
 	atack INTEGER NOT NULL DEFAULT 1,
 	ps INTEGER NOT NULL DEFAULT 1,
+	alias VARCHAR(10) NOT NULL,
 	FOREIGN KEY(id_owner) REFERENCES Users(id),
 	FOREIGN KEY(id_type) REFERENCES Animals(id)
 );

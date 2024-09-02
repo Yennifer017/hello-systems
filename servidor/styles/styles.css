@@ -8,6 +8,11 @@ body {
 .large-image{
     width: 70%;
 }
+.medium-img{
+    min-width: 400px;
+    width: 40%;
+}
+
 .centrado {
     display: block;
     margin:auto;
@@ -58,11 +63,23 @@ body {
     box-shadow: 0px 0px 15px 5px #00FF00; /* Sombra brillante alrededor del párrafo */
 }
 
+.internal{
+    width: 80%;
+    min-width: 400px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 10px; 
+}
 /*
     TITLE
 */
 
-/* Asegúrate de incluir una fuente adecuada en tu HTML */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 .gamer-title {
@@ -70,8 +87,7 @@ body {
     font-size: 3rem; /* Tamaño grande del título */
     color: #00fff7; /* Color verde neón */
     text-shadow: 0 0 10px rgba(0, 255, 225, 0.771), 0 0 20px rgba(0, 255, 153, 0.5); /* Efecto de sombra */
-    background: linear-gradient(45deg, #0f0f0f, #333); /* Gradiente de fondo */
-    border-radius: 8px; /* Bordes redondeados */
+    
     padding: 10px 20px; /* Espaciado interno */
     text-align: center; /* Alineación centrada del texto */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra alrededor del título */
@@ -166,8 +182,6 @@ header * {
     position: relative;
     z-index: 1; /* Asegurar que el contenido esté encima del efecto de brillo */
 }
-
-
 
  
 /*****************************************
