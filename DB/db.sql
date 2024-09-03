@@ -36,6 +36,7 @@ CREATE TABLE Depretator(
 	ps_base INTEGER DEFAULT 1,
 	link_img VARCHAR(30) NOT NULL,
 	def_name VARCHAR(10) NOT NULL,
+	difficult ENUM('EASY', 'MEDIUM', 'HARD'),
 	CONSTRAINT depretator_pk PRIMARY KEY (id)
 );
 
@@ -69,7 +70,7 @@ CREATE TABLE Gained_badges(
 	FOREIGN KEY(id_badge) REFERENCES Badges(id)	
 );
 CREATE TABLE Players_animals(
-	ID INTEGER PRIMARY KEY AUTO_INCREMENT,
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	id_owner INTEGER NOT NULL,
 	date_capture DATE NOT NULL,
 	exp INTEGER NOT NULL DEFAULT 0,

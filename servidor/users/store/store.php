@@ -24,6 +24,7 @@ try { //getAnimalsOnSale
     <title>Dashboard</title>
     <link rel="stylesheet" href="../../styles/styles.css">
     <link rel="stylesheet" href="../../styles/store-styles.css">
+    <link rel="stylesheet" href="../../styles/cards.css">
 </head>
 
 <body>

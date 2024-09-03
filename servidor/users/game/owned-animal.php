@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 class Owned_animal {
-    public $id = -1;
+        public $id = -1;
     public $exp = 0;
     public $level = 0;
     public $atk = 0;
@@ -25,12 +25,13 @@ class Owned_animal {
 
     public function show_form()  {
         $html ="
-        <form action=\"init-game.php\" method=\"POST\">
+        <form action=\"request-battle.php\" method=\"POST\">
             <div class=\"card\">
                 <div>
                     <img src=\"../$this->link\">
                 </div>
                 <input type=\"hidden\" id=\"id\" name=\"id\" required value=\"$this->id\">
+                <input type=\"hidden\" id=\"alias\" name=\"alias\" required value=\"$this->alias\">
                 <div class=\"card-content\">
                     <p>Nombre: $this->alias</p>
                     <ul>
@@ -39,13 +40,14 @@ class Owned_animal {
                         <li>Ataque: $this->atk</li>
                         <li>Puntos de salud: $this->ps</li>
                     </ul>
-                    <button type=\"submit\" name=\"buy\">Mandar a batalla</button>
+                    <button type=\"submit\" name=\"play\">Mandar a batalla</button>
                 </div>
             </div>
         </form>
         ";
         return $html;
     }
+    
 }
 
 ?>

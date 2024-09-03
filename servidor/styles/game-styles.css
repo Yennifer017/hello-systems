@@ -1,0 +1,71 @@
+
+.game {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    box-shadow: 0px 0px 20px 5px #00FF00; /* Sombra verde brillante */
+}
+
+.animal {
+    background-color: #1a1a1a; /* Fondo oscuro para las tarjetas */
+    border: 3px solid #00FF00; /* Borde verde brillante */
+    border-radius: 10px;
+    padding: 20px;
+    width: 45%;
+    text-align: center;
+    box-shadow: 0px 0px 15px 5px #00FF00; /* Sombra verde brillante */
+}
+
+.animal img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #FF0000; /* Borde rojo */
+    margin-bottom: 10px;
+}
+
+.animal p {
+    margin: 10px 0;
+    color: #FFFFFF; /* Texto blanco */
+    text-shadow: 1px 1px #00FF00; /* Sombra ligera verde */
+}
+
+.animal button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00FF00; /* Fondo verde brillante */
+    color: #000000; /* Texto negro */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 10px;
+    box-shadow: 0px 0px 10px 2px #00FF00; /* Sombra verde brillante */
+    transition: all 0.2s ease-in-out;
+}
+
+.animal button:hover {
+    background-color: #FF0000; /* Cambia a rojo al pasar el ratón */
+    color: #FFFFFF; /* Texto blanco */
+    box-shadow: 0px 0px 10px 2px #FF0000; /* Sombra roja brillante */
+}
+
+.actions {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #1a1a1a; /* Fondo oscuro para las acciones */
+    border: 3px solid #00FF00; /* Borde verde brillante */
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 5px #00FF00; /* Sombra verde brillante */
+    text-align: center;
+}
+
+.actions p {
+    color: #FFFFFF; /* Texto blanco */
+    margin: 10px 0;
+    text-shadow: 1px 1px #00FF00; /* Sombra ligera verde */
+}

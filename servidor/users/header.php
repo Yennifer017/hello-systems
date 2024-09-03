@@ -10,6 +10,7 @@
     </h1>
     <nav>
         <ul>
+            <li><a href="../../home.html">Home</a></li>
             <li><a href="../game/dashboard.php">Establo</a></li>
             <li><a href="../store/store.php">Tienda</a></li>
             <li><a href="garden.php">Jardin</a></li>

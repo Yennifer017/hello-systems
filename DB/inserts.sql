@@ -6,13 +6,13 @@ INSERT INTO Animals(cost, atk_base, ps_base, link_img, def_name) VALUES (200, 40
 INSERT INTO Animals(cost, atk_base, ps_base, link_img, def_name) VALUES (250, 45, 90, "../img/players/girafe.jpg", "giraffe");
 
 /*DEPRETATORS*/
-INSERT INTO Depretator(atk_base, ps_base, link_img, def_name) VALUES (30, 70, "../img/depretators/lion.jpg", "lion");
-INSERT INTO Depretator(atk_base, ps_base, link_img, def_name) VALUES (30, 70, "../img/depretators/shark.jpg", "shark");
-INSERT INTO Depretator(atk_base, ps_base, link_img, def_name) VALUES (30, 70, "../img/depretators/octopus.jpg", "octopus");
-INSERT INTO Depretator(atk_base, ps_base, link_img, def_name) VALUES (40, 80, "../img/depretators/vulture.jpg", "vulture");
-INSERT INTO Depretator(atk_base, ps_base, link_img, def_name) VALUES (40, 80, "../img/depretators/hyena.jpg", "hyena");
-INSERT INTO Depretator(atk_base, ps_base, link_img, def_name) VALUES (50, 75, "../img/depretators/fungus1.jpg", "fungus.exe");
-INSERT INTO Depretator(atk_base, ps_base, link_img, def_name) VALUES (50, 75, "../img/depretators/fungus2.jpg", "FunGu55");
+INSERT INTO Depretator(atk_base, ps_base, link_img, def_name, difficult) VALUES (30, 70, "../img/depretators/lion.jpg", "lion", 'EASY');
+INSERT INTO Depretator(atk_base, ps_base, link_img, def_name, difficult) VALUES (30, 70, "../img/depretators/shark.jpg", "shark", 'EASY');
+INSERT INTO Depretator(atk_base, ps_base, link_img, def_name, difficult) VALUES (30, 70, "../img/depretators/octopus.jpg", "octopus", 'EASY');
+INSERT INTO Depretator(atk_base, ps_base, link_img, def_name, difficult) VALUES (40, 80, "../img/depretators/vulture.jpg", "vulture", 'MEDIUM');
+INSERT INTO Depretator(atk_base, ps_base, link_img, def_name, difficult) VALUES (40, 80, "../img/depretators/hyena.jpg", "hyena", 'MEDIUM');
+INSERT INTO Depretator(atk_base, ps_base, link_img, def_name, difficult) VALUES (50, 75, "../img/depretators/fungus1.jpg", "fungus.exe", 'HARD');
+INSERT INTO Depretator(atk_base, ps_base, link_img, def_name, difficult) VALUES (50, 75, "../img/depretators/fungus2.jpg", "FunGu55", 'HARD');
 
 /*plants*/
 INSERT INTO Plant_potentiator(cost, exp, ps, atk, name, link_img) VALUES (110, 50, 10, 10, "carrot", "../img/plants/carrot.jpg");
