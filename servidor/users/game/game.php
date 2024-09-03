@@ -61,6 +61,10 @@ try {
 } catch (mysqli_sql_exception $e) {
     $error = "" . $e->getMessage();
 }
+
+//convertir los jugadores a json
+$depretator_json = json_encode($depretator);
+$player_json = json_encode($player);
     
 ?>
 
@@ -88,7 +92,7 @@ try {
                 <?php echo $player->atk?>
             </p>
             <p>Puntos de salud: 
-                <span id="ps-player">
+                <span id="psPlayer">
                     <?php echo $player->ps?>
                 </span>
             </p>
@@ -98,9 +102,11 @@ try {
             <p>Experiencia:
                 <?php echo $player->exp?>
             </p>
-            <button id="attack-btn">Atacar</button>
-            <button id="defend-btn">Defender</button>
-            <button id="esc-btn">Defender</button>
+            <div>
+                <button id="attackBtn">Atacar</button>
+                <button id="defendBtn">Defender</button>
+                <button id="escBtn">Huir</button>
+            </div>
         </div>
         <div class="animal left">
             <img src="<?php echo '../' . $depretator->link?>" alt="Animal 2">
@@ -111,18 +117,18 @@ try {
                 <?php echo $depretator->atk?>
             </p>
             <p>Puntos de salud: 
-                <span id="ps-depretator">
+                <span id="psDepretator">
                     <?php echo $depretator->ps?>
                 </span>
             </p>
         </div>
     </div>
     <div class="actions centrado">
-        <p>Último movimiento del usuario: 
-            <span id="player-last-move"></span>
+        <p>Último movimiento del usuario:
+            <span id="playerLastMove">???</span>
         </p>
-        <p>Último movimiento del contrincante: 
-            <span id="depretator-last-move"></span>
+        <p>Último movimiento del contrincante:
+            <span id="depretatorLastMove">???</span>
         </p>
     </div>
 
@@ -135,5 +141,12 @@ try {
     </div>
 
 </body>
+
+<script>
+// Pasar los objetos a JavaScript
+const depretatorData = <?php echo $depretator_json; ?>;
+const playerData = <?php echo $player_json; ?>;
+</script>
+<script type="module" src="../../js/game.js"></script> <!-- Esto trata el archivo como módulo -->
 
 </html>
