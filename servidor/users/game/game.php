@@ -1,9 +1,5 @@
 <?php 
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 require '../../session.php' ; 
 require '../../db_connection.php' ; 
 require 'owned-animal.php';
@@ -139,6 +135,13 @@ $player_json = json_encode($player);
         }
         ?>
     </div>
+    
+    <form action="process.php" method="POST">
+        <input type="hidden" id="state" name="state" required value="INCOMPLEATE">
+        <input type="hidden" id="idPlayer" name="idPlayer" required value="<?php echo $player->id?>">
+        <input type="hidden" id="idDepretator" name="idDepretator" required value="<?php echo $depretator->id?>">
+        <button type="submit" style="display: none;" id="submitStatisticBtn"></button>
+    </form>
 
 </body>
 
@@ -146,6 +149,7 @@ $player_json = json_encode($player);
 // Pasar los objetos a JavaScript
 const depretatorData = <?php echo $depretator_json; ?>;
 const playerData = <?php echo $player_json; ?>;
+const difficult = <?php echo json_encode($difficult);?>;
 </script>
 <script type="module" src="../../js/game.js"></script> <!-- Esto trata el archivo como módulo -->
 

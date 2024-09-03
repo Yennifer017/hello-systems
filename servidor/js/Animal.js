@@ -32,4 +32,12 @@ export class Animal {
         return random < 20 + this.level;
     }
 
+    isDead(){
+        return this.ps <= 0;
+    }
+
+    isAlive(){
+        return this.ps > 0;
+    }
+
 }

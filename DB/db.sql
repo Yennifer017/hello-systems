@@ -91,6 +91,8 @@ CREATE TABLE Statistics(
 	points INTEGER NOT NULL,
 	gold_gained INTEGER NOT NULL DEFAULT 0,
 	id_player INTEGER NOT NULL,
+	id_depretator INTEGER NOT NULL,
 	FOREIGN KEY(id_user) REFERENCES Users(id),
-	FOREIGN KEY(id_player) REFERENCES Players_animals(id)
+	FOREIGN KEY(id_player) REFERENCES Players_animals(id),
+	FOREIGN KEY(id_depretator) REFERENCES Depretator(id)
 );
