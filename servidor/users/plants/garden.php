@@ -1,24 +1,26 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require '../../db_connection.php';
-require 'animal-on-sale.php';
-require 'economic.php';
-require 'animalSaleDB.php';
-
+require '../store/economic.php';
+require 'plantDB.php';
+require 'Plant.php';
+$error = '';
 try { //getAnimalsOnSale'
     $id_user = get_session_data();
     $gold = get_gold($conn, $id_user);
     if($gold < 0) {
         $error = "No se ha podido obtener el oro";
     }
+    $plants = get_plants($conn);
 
-    $animals = get_animals($conn);
 
 } catch (mysqli_sql_exception $e) {
     $error = "" . $e->getMessage();
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -35,7 +37,7 @@ try { //getAnimalsOnSale'
     <?php include '../header.php'; ?>
 
     <h1 class="gamer-title">
-        Tienda de Mascotas
+        Jardin de plantas
     </h1>
 
     <div class="gold-container centrado">
@@ -54,18 +56,16 @@ try { //getAnimalsOnSale'
     </div>
 
     <div class="internal centrado">
-
         <?php
-        if(count($animals) == 0){
-            echo "<div class=\"error-message\"> No se han podido obtener los animales a la venta </div>";
+        if(count($plants) == 0) {
+            echo "<div class=\"error-message\"> No se han podido obtener las plantas a la venta </div>";
         } else {
-            for ($i = 0; $i < 10; $i++) {
-                echo $animals[$i]->show_form();
+            for ($i = 0; $i < count($plants); $i++) {
+                echo $plants[$i]->show_form();
             }
         }
         
         ?>
-
     </div>
 
 </body>

@@ -1,0 +1,56 @@
+/* Estilo para el contenedor principal del reporte */
+.report-container {
+    background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px #00ff00;
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Estilo para los párrafos */
+.report-container p {
+    color: #00ff00;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+/* Estilo para las tablas */
+.report-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Estilo para las celdas de las tablas */
+.report-container table th, 
+.report-container table td {
+    border: 1px solid #00ff00;
+    padding: 10px;
+    text-align: left;
+    color: #ffffff;
+}
+
+/* Estilo para las cabeceras de las tablas */
+.report-container table th {
+    background: #333333;
+    font-size: 1.1em;
+}
+
+/* Estilo para las filas alternas */
+.report-container table tr:nth-child(even) {
+    background: #262626;
+}
+
+/* Estilo para las filas al pasar el cursor */
+.report-container table tr:hover {
+    background: #444444;
+    cursor: pointer;
+}
+
+/* Estilo de animación para detalles */
+.report-container table th, 
+.report-container table td {
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}

@@ -1,9 +1,6 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-class Owned_animal {
+class Animal {
         public $id = -1;
     public $exp = 0;
     public $level = 0;
@@ -46,6 +43,20 @@ class Owned_animal {
         </form>
         ";
         return $html;
+    }
+
+    public function update_exp($conn, $id_user, $exp){
+        $level_up = 0;
+        $this->exp += $exp;
+        while($this->exp >= 100){
+            $level_up++;
+            $this->exp -= 100;
+        }
+        
+        $sql = "UPDATE Players_animals SET exp = ?, level = level + ? WHERE id = ? AND id_owner = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iiii", $this->exp, $level_up, $this->id, $id_user);
+        $stmt->execute();
     }
     
 }

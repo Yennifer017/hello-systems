@@ -1,7 +1,16 @@
 /* Contenedor principal del oro */
+.big-gold {
+    font-size: 4.5rem;
+}
+
+#big-gold-container{
+    width: 20%;
+    min-width: 350px;
+}
+
 .gold-container {
     width: 10%;
-    min-width: 80px; /* Ancho mínimo de 200px */
+    min-width: 80px;
     display: flex;
     align-items: center;
     background: #333; /* Fondo oscuro */
@@ -17,6 +26,13 @@
 .gold-icon {
     width: 24px;
     height: 24px;
+    margin-right: 10px;
+}
+
+/* Icono de oro */
+.big-gold-icon {
+    width: 80px;
+    height: 80px;
     margin-right: 10px;
 }
 

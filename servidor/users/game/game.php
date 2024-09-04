@@ -1,8 +1,9 @@
 <?php 
 
+require 'animalDB.php';
 require '../../session.php' ; 
 require '../../db_connection.php' ; 
-require 'owned-animal.php';
+require 'animal.php';
 
 $id_pet=$_POST['id_pet']; 
 $difficult=$_POST['dificultad']; 
@@ -10,48 +11,14 @@ $id_user=get_session_data();
 $error = '';
 
 try {
-    //enemigo random
-    $sql_depretator = "SELECT id, atk_base, ps_base, link_img, def_name FROM Depretator WHERE difficult = ?";
-    $stmt_depretator = $conn->prepare($sql_depretator);
-    $stmt_depretator->bind_param("s", $difficult);
-    $stmt_depretator->execute();
-    $result_depretators = $stmt_depretator->get_result();
 
-    if ($result_depretators->num_rows > 0) {
-        $index = 0;
-        $random = rand(0, $result_depretators->num_rows -1);
-        while (true) {
-            $row = $result_depretators->fetch_assoc() ;
-            if($index == $random){
-                $depretator = new Owned_animal($row['id'], 0, 0, $row['atk_base'], $row['ps_base'], 
-                        $row['link_img'], $row['def_name']);
-                break;
-            } 
-            $index = $index + 1;
-        }
-    } else {
-        $error = "No se han encontrado enemigos :c\n";
+    $depretator = get_depretator($conn, $difficult);
+    if($depretator == null){
+        $error = "No se han encontrado enemigos";
     }
-
-    //get player
-    $sql_player = "SELECT  Players_animals.id, Players_animals.exp, Players_animals.level, Players_animals.atack, 
-            Players_animals.ps, Players_animals.alias, Animals.link_img
-            FROM Players_animals
-            JOIN Animals ON Players_animals.id_type = Animals.id
-            WHERE Players_animals.id_owner = ? AND Players_animals.id = ?
-            LIMIT 1 ;
-            ";
-    $stmt_player = $conn->prepare($sql_player);
-    $stmt_player->bind_param("ii", $id_user, $id_pet);
-    $stmt_player->execute();
-    $result_player = $stmt_player->get_result();
-
-    if ($result_player->num_rows > 0) {
-        $row = $result_player->fetch_assoc();
-        $player = new Owned_animal($row['id'], $row['exp'], $row['level'], $row['atack'], $row['ps'], 
-                $row['link_img'], $row['alias']);
-    } else {
-        $error = "No se pudo encontrar la mascota para pelear\n";
+    $player = get_player($conn, $id_user, $id_pet);
+    if($player == null){
+        $error = "No se pudo encontrar la mascota para pelear";
     }
 
 } catch (mysqli_sql_exception $e) {
@@ -137,6 +104,7 @@ $player_json = json_encode($player);
     </div>
     
     <form action="process.php" method="POST">
+        <input type="hidden" id="difficult" name="difficult" required value="<?php echo $difficult?>">
         <input type="hidden" id="state" name="state" required value="INCOMPLEATE">
         <input type="hidden" id="idPlayer" name="idPlayer" required value="<?php echo $player->id?>">
         <input type="hidden" id="idDepretator" name="idDepretator" required value="<?php echo $depretator->id?>">
@@ -149,7 +117,6 @@ $player_json = json_encode($player);
 // Pasar los objetos a JavaScript
 const depretatorData = <?php echo $depretator_json; ?>;
 const playerData = <?php echo $player_json; ?>;
-const difficult = <?php echo json_encode($difficult);?>;
 </script>
 <script type="module" src="../../js/game.js"></script> <!-- Esto trata el archivo como módulo -->
 

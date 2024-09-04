@@ -1,22 +1,14 @@
 <?php 
 
 require '../../db_connection.php';
-require 'owned-animal.php';
+require 'animal.php';
 require '../../session.php';
+require 'animalDB.php';
 
 $error = '';
 try {
     $id_session = get_session_data();
-
-    $sql = "SELECT  Players_animals.id, Players_animals.exp, 
-        Players_animals.level, Players_animals.atack, Players_animals.ps, Players_animals.alias, Animals.link_img
-        FROM Players_animals
-        JOIN Animals ON Players_animals.id_type = Animals.id
-        WHERE Players_animals.id_owner = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id_session);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $animals = get_players($conn, $id_session);
 
 } catch (mysqli_sql_exception $e) {
     $error = "" . $e->getMessage();
@@ -49,19 +41,18 @@ try {
 
     <div class="internal centrado">
         <?php
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $pet = new Owned_animal($row['id'], $row['exp'], $row['level'], 
-                    $row['atack'], $row['ps'], $row['link_img'], $row['alias']);
-                echo $pet->show_form();
-            }
-        } else {
+        if(count($animals) == 0){
             echo "<div class=\"internal centrado paragraph-gamer\">
                     <p> 
                         No posees ninguna mascota aun
                     </p>
                 </div>";
+        } else {
+            for ($i = 0; $i < count($animals); $i++) {
+                echo $animals[$i]->show_form();
+            }
         }
+
         ?>
     </div>
 

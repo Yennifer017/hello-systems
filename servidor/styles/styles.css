@@ -63,6 +63,11 @@ body {
     box-shadow: 0px 0px 15px 5px #00FF00; /* Sombra brillante alrededor del párrafo */
 }
 
+.green-paragraph{
+    font-size: 18px;
+    color: #00FF00; 
+}
+
 .internal{
     width: 80%;
     min-width: 400px;
@@ -76,6 +81,64 @@ body {
     margin: 0 auto;
     padding: 20px 10px; 
 }
+
+#form-rep{
+    background-color: rgba(35, 35, 35, 0);
+}
+
+/*buttons moderns*/
+
+/* Estilo base para los botones */
+.gamer-button {
+    background: linear-gradient(145deg, #00ff00, #007f00);
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    color: #000000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 10px #00ff00, inset 0 0 5px #007f00;
+}
+
+/* Estilo para el efecto hover */
+.gamer-button:hover {
+    background: linear-gradient(145deg, #007f00, #00ff00);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00ff00, inset 0 0 10px #007f00;
+}
+
+/* Estilo para el efecto de clic */
+.gamer-button:active {
+    background: linear-gradient(145deg, #00cc00, #005500);
+    transform: scale(0.95);
+    box-shadow: 0 0 15px #00cc00, inset 0 0 8px #005500;
+}
+
+/* Variantes de color para diferentes acciones */
+.gamer-button.primary {
+    border-color: #007fff;
+    background: linear-gradient(145deg, #00aaff, #0044aa);
+    box-shadow: 0 0 10px #00aaff, inset 0 0 5px #0044aa;
+}
+
+.gamer-button.primary:hover {
+    background: linear-gradient(145deg, #0044aa, #00aaff);
+    box-shadow: 0 0 20px #00aaff, inset 0 0 10px #0044aa;
+}
+
+.gamer-button.primary:active {
+    background: linear-gradient(145deg, #0077cc, #003388);
+    box-shadow: 0 0 15px #0077cc, inset 0 0 8px #003388;
+}
+
+
+
 /*
     TITLE
 */
@@ -97,6 +160,18 @@ body {
 .gamer-title:hover {
     color: #00bbff; /* Cambia el color al pasar el mouse */
     text-shadow: 0 0 15px rgba(0, 60, 255, 0.7), 0 0 30px rgba(0, 128, 255, 0.5); /* Efecto de sombra al pasar el mouse */
+}
+
+.small-title{
+    font-size: 1.7rem;
+}
+
+.divisor {
+    border: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #FF0000, #00FF00, #0000FF); /* Degradado RGB */
+    box-shadow: 0px 0px 10px #00FF00, 0px 0px 20px #FF0000; /* Sombra verde y roja brillante */
+    margin: 40px 0;
 }
 
 
@@ -219,10 +294,12 @@ ERROR && SUCCESS
 
 
 
-/*FORM*/
+/*************************************************
+        FORM
+****************************************************/
 
 .gamer-form {
-    background-color: #000000; /* Fondo negro del formulario */
+    background-color: #000000; 
     padding: 30px;
     border-radius: 10px;
     border: 3px solid #00FF00; /* Borde verde brillante */
@@ -337,4 +414,33 @@ ERROR && SUCCESS
 .gamer-form select:focus {
     outline: none;
     box-shadow: 0px 0px 15px #FF0000, inset 0px 0px 10px #00FF00; /* Efecto de foco rojo y verde */
+}
+
+/* Estilo para el campo de selección de fecha */
+.gamer-form input[type="date"] {
+    background: #1e1e1e;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    box-shadow: inset 0 0 5px #00ff00;
+    transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+    appearance: none; /* Para eliminar el estilo por defecto del navegador */
+    position: relative;
+}
+
+/* Estilo para el campo de selección de fecha al recibir foco */
+.gamer-form input[type="date"]:focus {
+    box-shadow: 0 0 10px #00ff00, inset 0 0 5px #007f00;
+    outline: none;
+    background: #262626;
+}
+
+/* Estilo para los iconos y la apariencia personalizada */
+.gamer-form input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%); /* Cambia el color del icono de calendario */
+    cursor: pointer;
 }
